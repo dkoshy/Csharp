@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockAnalyzer.CrossPlatform
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockAnalyzer.Web", "AsyncCsharp\StockAnalyzer.Web\StockAnalyzer.Web.csproj", "{84AF84DA-D228-42BA-8657-D0B1D1A009A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Async", "ConsoleApp.Async\ConsoleApp.Async.csproj", "{7AEEFA6E-FBA9-4BBD-BCFF-20B41163D7D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{84AF84DA-D228-42BA-8657-D0B1D1A009A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84AF84DA-D228-42BA-8657-D0B1D1A009A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84AF84DA-D228-42BA-8657-D0B1D1A009A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AEEFA6E-FBA9-4BBD-BCFF-20B41163D7D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AEEFA6E-FBA9-4BBD-BCFF-20B41163D7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AEEFA6E-FBA9-4BBD-BCFF-20B41163D7D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AEEFA6E-FBA9-4BBD-BCFF-20B41163D7D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{FCEF60E0-12E3-45F1-AC62-AEBBC786E1C9} = {EBF220D2-6353-4759-B02A-939D6EBD7FA7}
 		{5D44C7C1-68A8-49BE-991A-3C9EB26FAFC9} = {EBF220D2-6353-4759-B02A-939D6EBD7FA7}
 		{84AF84DA-D228-42BA-8657-D0B1D1A009A5} = {EBF220D2-6353-4759-B02A-939D6EBD7FA7}
+		{7AEEFA6E-FBA9-4BBD-BCFF-20B41163D7D1} = {EBF220D2-6353-4759-B02A-939D6EBD7FA7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24555D61-FFC5-478F-BC6D-7672552DC702}
