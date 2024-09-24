@@ -1,10 +1,14 @@
 ﻿using EventScheduler.Data;
+using EventScheduler.Services.Exceptions;
 using EventScheduler.Services.Model.Event;
 using EventScheduler.Services.Model.Participant;
 using EventScheduler.Services.Model.Speaker;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +25,7 @@ namespace EventScheduler.Services.Services
         IEnumerable<object> GetEvents(string userId);
         IEnumerable<ParticipantViewModel> GetParticipantsByEvent(string userId, Guid eventId);
         IEnumerable<SpeakerViewModel> GetSpeakersByEvent(string userId, Guid eventId);
+        IEnumerable<object> GetExernalEvents();
     }
 
     public class EventDataService : IEventDataService
@@ -157,6 +162,22 @@ namespace EventScheduler.Services.Services
             _db.SaveChanges();
         }
 
+        public IEnumerable<object> GetExernalEvents()
+        {
+            //throw new ExternalDependencyException(HttpStatusCode.FailedDependency, new ProblemDetails
+            //{
+            //     Title = "Failed Dependency",
+            //     Type = "http//errorcodes.com/faileddependency",
+            //     Status = 404
+            //});
 
+
+            throw new DefaultEventServiceException()
+            {
+                StatusCode = HttpStatusCode.FailedDependency,
+                ErrorCode = 101,
+                EventId = new EventId(6, "Default service exception,")
+            };
+        }
     }
 }

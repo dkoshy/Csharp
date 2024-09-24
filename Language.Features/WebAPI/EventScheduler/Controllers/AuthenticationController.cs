@@ -24,7 +24,26 @@ namespace EventScheduler.Controllers
             _userManager = userManager;
             _configuration = configuration;
         }
-
+        /// <summary>
+        /// Get Authentication token for the API .
+        /// </summary>
+        /// <remarks>
+        /// POST api/authentication/token
+        /// 
+        ///  {
+        ///     "username" : "john",
+        ///     "password" : "John@123#"
+        ///  }
+        ///  
+        ///  Sample Response :
+        ///  
+        ///  {
+        ///     "token" : "fghyu78900mmui...."
+        ///     "expiration" : "2024/08/03/ 12:01:20"
+        ///  }
+        /// </remarks>
+        /// <response code="200">Ok when successfull</response>
+        /// <response code="401">unauthrized when credentials are wrong.</response>
         [HttpPost]
         [Route("token")]
         public async Task<IActionResult> Token([FromBody] LoginModel model)

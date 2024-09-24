@@ -1,19 +1,16 @@
 ﻿using EventScheduler.Controllers.Base;
-using EventScheduler.Data;
-using EventScheduler.Model.Auth;
+using EventScheduler.Filetrs;
 using EventScheduler.Services.Model.Event;
 using EventScheduler.Services.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace EventScheduler.Controllers
 {
+
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
@@ -58,6 +55,19 @@ namespace EventScheduler.Controllers
         {
             _eventDataService.DeleteEvent(CurrentUserId,id);
             return Ok(id);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet("external")]
+        //[ExternalDependencyExceptionFiletr]
+        public IActionResult GetExternalEvennts()
+        {
+            var result = _eventDataService.GetExernalEvents();
+            return Ok(result);
         }
     }
 }
