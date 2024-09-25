@@ -1,5 +1,10 @@
-﻿using ContactWriter.CustomAttributes;
+﻿#define Skip_Step1
+#define Skip_Step2
+
+using ContactWriter.CustomAttributes;
 using System;
+using System.Diagnostics;
+using System.Reflection;
 using System.Text;
 using static System.Console;
 
@@ -19,14 +24,20 @@ public  class ContactConsoleWriter
         PreserveColor();
     }
 
-   // [Obsolete("This will be removed in upcomming sprints.", true)]
+    // [Obsolete("This will be removed in upcomming sprints.", true)]
+    //[SkipExe]
     public void Write()
     {
+        var isSkipped = Attribute.GetCustomAttribute(MethodBase.GetCurrentMethod(), typeof(SkipExeAttribute))
+                        != null ? true : false;
+        if(isSkipped) { return; }
+
         WriteName();
         WriteAge();
        
     }
 
+    [Conditional("Skip_Step1")]
     private void WriteName()
     {
         //WriteLine(_contact.FirstName);
@@ -51,6 +62,7 @@ public  class ContactConsoleWriter
         SetColor();
     }
 
+    [Conditional("Skip_Step2")]
     private void WriteAge()
     {
         WriteLine(_contact.AgeInYears);
