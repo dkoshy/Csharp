@@ -3,7 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactWriter", "AttribitesInCSharp\ContactWriter\ContactWriter.csproj", "{37C3F694-57BA-40AA-8934-04F8324B920F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactWriter.Test", "AttribitesInCSharp\ContactWriter.Test\ContactWriter.Test.csproj", "{598AB2DC-C6A8-4CB6-8477-DA6D581D5EE1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{37C3F694-57BA-40AA-8934-04F8324B920F} = {37C3F694-57BA-40AA-8934-04F8324B920F}
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37C3F694-57BA-40AA-8934-04F8324B920F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C3F694-57BA-40AA-8934-04F8324B920F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C3F694-57BA-40AA-8934-04F8324B920F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C3F694-57BA-40AA-8934-04F8324B920F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598AB2DC-C6A8-4CB6-8477-DA6D581D5EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598AB2DC-C6A8-4CB6-8477-DA6D581D5EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598AB2DC-C6A8-4CB6-8477-DA6D581D5EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598AB2DC-C6A8-4CB6-8477-DA6D581D5EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
