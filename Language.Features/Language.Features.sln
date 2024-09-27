@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarvedRock.Api", "LogingInNetCore\CarvedRock.Api\CarvedRock.Api.csproj", "{A9FD9F53-7F9A-42F9-94C1-3ACF9885CFBE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarvedRock.Domain", "LogingInNetCore\CarvedRock.Domain\CarvedRock.Domain.csproj", "{EE1607C0-5046-48F3-9509-C820D7D8213E}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9FD9F53-7F9A-42F9-94C1-3ACF9885CFBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9FD9F53-7F9A-42F9-94C1-3ACF9885CFBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9FD9F53-7F9A-42F9-94C1-3ACF9885CFBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9FD9F53-7F9A-42F9-94C1-3ACF9885CFBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1607C0-5046-48F3-9509-C820D7D8213E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1607C0-5046-48F3-9509-C820D7D8213E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1607C0-5046-48F3-9509-C820D7D8213E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1607C0-5046-48F3-9509-C820D7D8213E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

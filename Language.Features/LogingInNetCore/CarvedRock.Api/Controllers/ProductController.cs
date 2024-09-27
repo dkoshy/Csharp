@@ -9,15 +9,18 @@ namespace CarvedRock.Api.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly IProductLogic _productLogic;
+    private readonly ILogger<ProductController> _logger;
 
-    public ProductController(IProductLogic productLogic)
+    public ProductController(IProductLogic productLogic , ILogger<ProductController> logger)
     {
         _productLogic = productLogic;
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
     [HttpGet]
     public async Task<IEnumerable<ProductModel>> Get(string category = "all")
     {
+        _logger.LogInformation("Geting all product details for {category}", category);
         return await _productLogic.GetProductsForCategory(category);
     }
 }
