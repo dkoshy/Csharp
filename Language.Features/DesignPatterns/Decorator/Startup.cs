@@ -1,13 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DecoratorDesignPattern.Decorator;
+using DecoratorDesignPattern.OpenWeatherMap;
+using DecoratorDesignPattern.WeatherInterface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace DecoratorDesignPattern
 {
@@ -27,6 +27,18 @@ namespace DecoratorDesignPattern
             services.AddControllersWithViews();
 
             services.AddMemoryCache();
+
+            services.AddScoped<IWeatherService>(sp =>
+            {
+                var apikey = Configuration.GetValue<string>("AppSettings:OpenWeatherMapApiKey");
+                var cache = sp.GetService<IMemoryCache>();
+                var logger = sp.GetService<ILogger<WeatherServiceLogger>>();
+
+                var corewatherervice = new WeatherService(apikey);
+                var logingService = new WeatherServiceLogger(corewatherervice, logger);
+                var cacheService = new WeatherServiceCache(logingService, cache);
+                return cacheService;
+            });
         }
 
 

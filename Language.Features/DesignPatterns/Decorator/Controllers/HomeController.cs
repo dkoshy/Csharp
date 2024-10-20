@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DecoratorDesignPattern.Models;
-using DecoratorDesignPattern.OpenWeatherMap;
 using DecoratorDesignPattern.WeatherInterface;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace DecoratorDesignPattern.Controllers
 {
@@ -18,13 +12,21 @@ namespace DecoratorDesignPattern.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IWeatherService _weatherService;
 
-        public HomeController(ILoggerFactory loggerFactory, IConfiguration configuration, IMemoryCache memoryCache)
+        public HomeController(ILoggerFactory loggerFactory
+          , IWeatherService weatherService) //   , IConfiguration configuration ,, IMemoryCache memoryCache
+
         {
             _loggerFactory = loggerFactory;
             _logger = _loggerFactory.CreateLogger<HomeController>();
 
-            String apiKey = configuration.GetValue<String>("AppSettings:OpenWeatherMapApiKey");
-            _weatherService = new WeatherService(apiKey);
+
+            _weatherService = weatherService;
+            /*
+             String apiKey = configuration.GetValue<String>("AppSettings:OpenWeatherMapApiKey");
+            var coreWeatherService = new WeatherService(apiKey);
+            var weatherServiceWihLogger = new WeatherServiceLogger(coreWeatherService, _loggerFactory.CreateLogger<WeatherServiceLogger>());
+            var weatherServiceWihcache = new WeatherServiceCache(weatherServiceWihLogger, memoryCache);
+            _weatherService = weatherServiceWihcache;*/
         }
 
 
